@@ -1,0 +1,64 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="layout/main.html">
+<div layout:fragment="content">
+    <script>
+        function active(){
+            document.getElementById("refresh");
+        }
+        function surname(){
+            document.getElementById("refresh02");
+        }
+    </script>
+    <hr>
+    <div class="container bootstrap snippet">
+        <div class="row">
+            <div class="col-sm-10">user page of <h1 th:text="${user.name}"></h1></div>
+            <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-soldat" th:src="@{/images/userSoldat.png}"></a></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3"><!--left col-->
+
+
+                <div class="text-center">
+                    <img th:src="@{/images/menPhoto.png}" class="avatar img-circle img-thumbnail" alt="avatar">
+                    <h6>Upload a different photo...</h6>
+                    <input type="file" class="text-center center-block file-upload">
+                </div></hr><br>
+
+            </div><!--/col-3-->
+            <div class="col-sm-9">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="active()">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="surname()">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <div id="refresh">
+                    <div class="form-group">
+                        <label for="name" th:text="#{label.name}"></label>
+                        <input type="text" id="name" class="form-control" th:value="${user.name}">
+                    </div>
+                </div>
+                <div id="refresh02">
+                    <div class="form-group">
+                        <label for="surname" th:text="#{label.surname}"></label>
+                        <input type="text" id="surname" class="form-control" th:value="${user.surname}">
+                    </div>
+                </div>
+
+
+            </div><!--/col-9-->
+    </div><!--/row-->
+
+</div>
+</html>
